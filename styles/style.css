@@ -9,6 +9,10 @@ html {
 }
 
 .page {
+  display: flex;
+  /*центрирую контент*/
+  justify-content: center;
+  align-items: center;
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
@@ -16,6 +20,118 @@ html {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   background-color: #1b1919;
+}
+
+.content {
+  display: flex;
+  align-items: flex-end; /*выравниваение колонок по нижнему краю*/
+  gap: 30px; /*промежуток между колонками*/
+  inline-size: 1140px; /*ширина*/
+}
+
+.content__details {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  flex-grow: 1;
+  align-self: stretch;
+}
+
+.content__list-container {
+  block-size: 298px; /*жёсткая высота*/
+  overflow-y: auto; /*скролл*/
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.search-form {
+  display: flex;
+  justify-content: space-between; /*распределение свободного места*/
+  align-items: flex-start; /*прижал элементы к верхней части формы*/
+}
+
+.result__video-container {
+  /*размеры из макета*/
+  inline-size: 711px;
+  block-size: 386px;
+  margin-bottom: 16px;
+}
+
+.result__video {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover; /*здесь подходит 'cover', так как требуется заполнить контейнер*/
+}
+
+.content__list {
+  display: flex;
+  flex-direction: column; /*расположение карточек*/
+  gap: 30px; /*размеры из макета*/
+}
+
+.content__video-card {
+  display: flex;
+  align-items: flex-start; /*выравнивание по верху*/
+}
+
+.content__video-card-thumbnail {
+  /*размеры из макета*/
+  min-inline-size: 194px;
+  block-size: 103px;
+  object-fit: cover;
+  object-position: center; /*при обрезке сохраняется центр изображения*/
+}
+
+.content__video-card-description-container {
+  flex-grow: 1;
+}
+
+.search-form__fieldset-title {
+  /*размеры из макета*/
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 75px;
+  font-weight: 700;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.content__accent {
+  color: #545050;
+}
+
+.content__card-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.content__video-card-title {
+  /*параметры из макета*/
+  font-family: 'Oswald', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1; /*высота строки*/
+  white-space: nowrap; /*запрет переноса строки*/
+  overflow: hidden; /*скрывает текст*/
+  text-overflow: ellipsis; /*многоточие*/
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.content__video-card-description {
+  line-height: 0.9; /*параметры из макета*/
+  /*ограничение описания 4 строками и скрытие текста*/
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4; /*стандартный вариант*/
 }
 
 h1,
