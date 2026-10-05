@@ -35,6 +35,7 @@ html {
   gap: 26px;
   flex-grow: 1;
   align-self: stretch;
+  min-inline-size: 0; /*разрешает сжиматься всей правой колонке*/
 }
 
 .content__list-container {
@@ -70,9 +71,14 @@ html {
   gap: 30px; /*размеры из макета*/
 }
 
+.content__list-item {
+  padding-inline: 3px; /*место для обводки*/
+}
+
 .content__video-card {
   display: flex;
   align-items: flex-start; /*выравнивание по верху*/
+  gap: 3px; /*промежуток между текстом и изображением*/
 }
 
 .content__video-card-thumbnail {
@@ -85,6 +91,7 @@ html {
 
 .content__video-card-description-container {
   flex-grow: 1;
+  min-inline-size: 0; /*разрешаю flex-элементу сжиматься для работы многоточия*/
 }
 
 .search-form__fieldset-title {
@@ -107,8 +114,32 @@ html {
 }
 
 .content__card-link {
+  display: block;
   color: #fff;
   text-decoration: none;
+}
+
+.content__card-link_current {
+  background-color: #545050;
+}
+
+/*фон карточки в момент нажатия*/
+.content__card-link:active {
+  background-color: #545050;
+}
+
+/*подчеркивание текста карточки при наведении*/
+.content__card-link:hover {
+  text-decoration: underline;
+}
+
+.content__card-link:focus {
+  outline: none;
+}
+
+/*белая обводка при навигации через Tab*/
+.content__card-link:focus-visible {
+  outline: 1px solid #fff;
 }
 
 .content__video-card-title {
@@ -132,6 +163,127 @@ html {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
   line-clamp: 4; /*стандартный вариант*/
+}
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  gap: 15px; /*размер с макета*/
+}
+
+.search-form__fieldset {
+  border: none;
+}
+
+.search-form__label {
+  /*выполнено по инструкции*/
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 5px;
+}
+
+/*стилизация текстового поля*/
+
+.search-form__textfield {
+  inline-size: 225px; /*ширина по макету*/
+  border: none; /*сначала убираю рамку*/
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  color: #fff; /*цвет вводимого текста*/
+  /*поле берёт шрифт и размер у родителя*/
+  font-family: inherit;
+  font-size: inherit;
+  background-color: transparent;
+  appearance: none; /*откл стандартное браузерное оформление*/
+}
+
+.search-form__textfield:focus {
+  outline: none; /*откл стандартную браузерную обводку*/
+}
+
+.search-form__label:has(:focus-visible) {
+  /*белая обводка при видимом фокусе*/
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
+.search-form__textfield::placeholder {
+  color: rgb(255 255 255 / 0.7);
+}
+
+.search-form__pseudo-checkbox {
+  inline-size: 19px;
+  block-size: 19px;
+  border: 1px solid #fff;
+  padding: 1px;
+}
+
+.search-form__pseudo-checkbox::after {
+  content: ''; /*псевдоэлемент*/
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  background-color: #fff;
+  opacity: 0;
+}
+
+/*показывает белую заливку, когда чекбокс выбран*/
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
+  opacity: 1;
+}
+
+/*подчеркивание подписи при наведении*/
+.search-form__label:hover .search-form__label-text {
+  text-decoration: underline;
+}
+
+.button {
+  border: 1px solid #fff; /*рамка из макета*/
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 18px;
+  color: #fff;
+  background-color: transparent; /*в обычном состоянии фон прозрачный*/
+  cursor: pointer; /*показывает, что кнопку можно нажать*/
+}
+
+.search-form__submit-button {
+  align-self: flex-end; /*расположение кнопки в нижней части формы*/
+  inline-size: 194px; /*размер из макета*/
+  block-size: 34px;
+}
+
+.more-button {
+  inline-size: 100%; /*растягивает кнопку на всю ширину контейнера*/
+  min-block-size: 34px;
+}
+
+.button:hover {
+  text-decoration: underline;
+}
+
+.button:active {
+  background-color: #545050;
+}
+
+/*замена стандартной обводки*/
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
 }
 
 h1,
