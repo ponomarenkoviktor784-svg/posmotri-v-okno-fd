@@ -39,6 +39,7 @@ html {
 }
 
 .content__list-container {
+  position: relative;
   block-size: 298px; /*жёсткая высота*/
   overflow-y: auto; /*скролл*/
   display: flex;
@@ -53,6 +54,7 @@ html {
 }
 
 .result__video-container {
+  position: relative;
   /*размеры из макета*/
   inline-size: 711px;
   block-size: 386px;
@@ -92,6 +94,9 @@ html {
 .content__video-card-description-container {
   flex-grow: 1;
   min-inline-size: 0; /*разрешаю flex-элементу сжиматься для работы многоточия*/
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /*размер с макета*/
 }
 
 .search-form__fieldset-title {
@@ -117,6 +122,7 @@ html {
   display: block;
   color: #fff;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .content__card-link_current {
@@ -190,6 +196,7 @@ html {
   align-items: center;
   width: fit-content;
   gap: 5px;
+  cursor: pointer;
 }
 
 /*стилизация текстового поля*/
