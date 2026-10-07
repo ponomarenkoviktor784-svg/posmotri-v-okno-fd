@@ -110,7 +110,7 @@ html {
   font-family: 'Oswald', sans-serif;
   font-size: 75px;
   font-weight: 700;
-  line-height: 0.9;
+  line-height: 0.94; /*исправлена ошибка, сверено с макетом*/
   text-transform: uppercase;
 }
 
@@ -271,7 +271,7 @@ html {
 }
 
 .more-button {
-  inline-size: 100%; /*растягивает кнопку на всю ширину контейнера*/
+  inline-size: 390px; /*исправлена ошибка*/
   min-block-size: 34px;
 }
 
